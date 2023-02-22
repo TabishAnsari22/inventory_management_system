@@ -36,10 +36,8 @@ function Login() {
 
 
     let { state, dispatch } = useContext(GlobalContext);
+    console.log("🚀 ~ file: Login.jsx:39 ~ Login ~ state:", state)
     const navigate =useNavigate()
-
-
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -62,7 +60,7 @@ function Login() {
             console.log("response", response.data);
             navigate('/Adminlogin')
 
-            // dispatch({ type: "USER_LOGIN", payload: response.data.profile })
+            dispatch({ type: "USER_LOGIN", payload: response.data })
 
 
         } catch (e) {

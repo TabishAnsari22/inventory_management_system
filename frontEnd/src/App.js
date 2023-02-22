@@ -34,21 +34,11 @@ import Addneworder from "./Components/Addneworder";
 import Addnewpurchase from "./Components/Addnewpurchase";
 import Location from "./Components/Location";
 import Addnewlocation from "./Components/Addnewlocation";
+import Approutes from "./router/Approutes";
 
 function App() {
   let { state, dispatch } = useContext(GlobalContext);
-  <ToastContainer
-    position="top-left"
-    autoClose={5000}
-    hideProgressBar={false}
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-    theme="light"
-  />;
+ 
 
   useEffect(() => {
     const getProfile = async () => {
@@ -77,59 +67,22 @@ function App() {
     getProfile();
   }, []);
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        {state?.isLogin === true ? (
-          <>
-            {/* <Route path="/Setupinventory" element={<Setupinventory/> } /> */}
-            <Route path="/Dashboard" element={<Dashboard /> } />
-          </>
-        ) : null}
-
-        {state?.isLogin === false ? (
-          <>
-            <Route path="/Dashboard" element={<Dashboard /> } />
-            <Route path="/Signup" element={<Signup />} />
-            <Route path="/" element={<Login />} />
-            <Route path="/Setupbusines" element={<Setupbusines />} />
-            <Route path="/Adminlogin" element={<Adminlogin />} />
-            <Route path="/Usermanagement" element={<Usermanagement/>} />
-            <Route path="/Addnewuser" element={<Addnewuser/>} />
-            <Route path="/Category" element={<Category/>} />
-            <Route path="/Addnewcategory" element={<Addnewcategory />} />                       
-            <Route path="/Company" element={<Company/>} />                       
-            <Route path="/Addnwecompany" element={<Addnwecompany />} />                       
-            <Route path="/Supplier" element={<Supplier />} />                       
-            <Route path="/Addnewsupplier" element={<Addnewsupplier />} />                       
-            <Route path="/Tax" element={<Tax />} />                       
-            <Route path="/Addnewtax" element={<Addnewtax />} />                       
-            <Route path="/Product" element={<Product/>} />     
-            <Route path="/Addnewproduct" element={<Addnewproduct />} />     
-            <Route path="/Addnewpurchase" element={<Addnewpurchase />} />     
-            <Route path="/Purchase" element={<Purchase />} />     
-            <Route path="/Order" element={<Order />} />     
-            <Route path="/Addneworder" element={<Addneworder/> } />     
-            <Route path="/Location" element={<Location /> } />     
-            <Route path="/Addnewlocation" element={<Addnewlocation /> } />     
-
-          </>
-        ) : null}
-
-        {state?.isLogin === null ? (
-          <>
-            <Route
-              path="*"
-              element={
-                <div className="image_container234">
-                  {/* <img src={lodingimg} alt="loding_image" /> */}
-                </div>
-              }
-            />
-          </>
-        ) : null}
-      </Routes>
-    </Router>
+    <>
+    <Approutes/>
+      
+     <ToastContainer
+     position="top-left"
+     autoClose={5000}
+     hideProgressBar={false}
+     newestOnTop={false}
+     closeOnClick
+     rtl={false}
+     pauseOnFocusLoss
+     draggable
+     pauseOnHover
+     theme="light"
+   />
+   </>
   );
 }
 

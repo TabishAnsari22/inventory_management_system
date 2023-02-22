@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router';
 
 
 const Setupbusines = () => {
-  let { state, dispatch } = useContext(GlobalContext);
+  let { state } = useContext(GlobalContext);
   const navigate =useNavigate()
 
   const [BusinessName, setBusinessName] = useState("");
